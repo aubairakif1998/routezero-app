@@ -1,0 +1,187 @@
+/* .texttitle{
+    color: #E89725;
+    background-color:#E89725 ;
+    text-decoration-color:#E89725 ;
+} */
+.container-map {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3e9b4;
+    background-image: url("./Images/Grains.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bgimageLA {
+    background-image: url("./Images/LA.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bgimageKC {
+    background-image: url("./Images/KC.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bgimageDM {
+    background-image: url("./Images/DM.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bgimagePP {
+    background-image: url("./Images/PP.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bgimageWD {
+    background-image: url("./Images/WD.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Default styles for larger screens */
+.flexconY {
+    display: flex;
+    height: 400px;
+    width: 550px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.flexcon {
+    display: flex;
+    height: 420px;
+    margin-top: 10px;
+    width: 520px;
+    justify-content: space-between;
+}
+
+.row1logo {
+    width: 270px;
+    height: 200px;
+    border-radius: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.row1station1 {
+    width: 250px;
+    height: 190px;
+    margin-left: 10px;
+}
+
+.row1station2 {
+    width: 270px;
+    height: 150px;
+    margin-right: 10px;
+}
+
+.row1station3 {
+    width: 270px;
+    height: 150px;
+}
+
+.mobiletoshow {}
+
+/* Styles for smaller screens */
+@media only screen and (max-width: 415px) {
+    .flexconY {
+        height: auto;
+        width: auto;
+        border-radius: 0;
+    }
+
+    .mobiletoshow {
+        width: 100%;
+        height: 600px;
+        background-color: black;
+    }
+
+    .container-map {
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f3e9b4;
+    }
+
+    .flexcon {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .row1logo {
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        margin-bottom: 10px;
+    }
+
+    .row1station1,
+    .row1station2,
+    .row1station3 {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+
+
+
+
+
+
+    .mobiletoshowLogo {
+        width: 100%;
+        height: auto;
+        background-color: #f3e9b4; 
+        background-image: url("./Images/Grains.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+
+
+    .customcardtext {
+        font-size: 12px;
+        color: E89725;
+    }
+
+    .customcardtitle {
+        font-size: 15px;
+        color: #E89725; 
+    }
+    .btnmyclass {
+        display: block;
+        margin-left: 70px;
+        margin-right: 70px;
+        font-size: 12px;
+        background-color: #E89725;
+      }
+
+      .myclass {
+        margin: 10px;
+        max-width: 90%;
+        padding: 10px;
+        border-radius: 20px;
+      }
+      
+}
