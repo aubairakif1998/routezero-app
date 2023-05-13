@@ -269,7 +269,7 @@ export default function UsMap() {
                   {state === "Kansas City, MO" ? (
                     <image
                       style={{ position: "relative", top: "100px" }} //process.env.PUBLIC_URL +
-                      href="http://localhost:3000/img/car.png"
+                      href="https://routezero-app-pn8r.vercel.app/img/car.png"
                       x=" -22"
                       y=" -64"
                       width="55"
