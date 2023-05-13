@@ -32,6 +32,15 @@ export default function UsMap() {
       },
     ],
   };
+  const Ohio = {
+    stations: [
+      {
+        title: "Cleveland OH ",
+        description:
+          " ",
+      },
+    ],
+  };
   const Flagstaff = {
     stations: [
       {
@@ -112,14 +121,15 @@ export default function UsMap() {
     [-105.944183, 35.691544],
     [-94.578331, 39.099724],
     [-88.150558, 41.520557],
-    [-83.045753, 42.331429],
-    [-79.995888, 40.440624],
+    [-444.353266,42.795402,  ],
+    [-442.770179,40.329797 ],
+    [-438.543454, 41.525032 ],
     [-76.609383, 39.299236],
     [-77.007507, 38.900497],
   ];
   const coordinatedData = [
     {
-      coordinates: [-79.995888, 40.440624],
+      coordinates: [-438.543454, 41.525032 ],
       state: "Pittsburgh, Pennsylvania",
     },
     {
@@ -127,11 +137,11 @@ export default function UsMap() {
       state: "Baltimore, Maryland",
     },
     {
-      coordinates: [-77.007507, 38.900497],
+      coordinates: [-437.004341, 38.805472 ],
       state: "Washington, DC",
     },
     {
-      coordinates: [-83.045753, 42.331429],
+      coordinates: [-444.353266,42.795402,  ],
       state: "Detroit, Michigan",
     },
     {
@@ -149,6 +159,10 @@ export default function UsMap() {
     {
       coordinates: [-94.578331, 39.099724],
       state: "Kansas City, MO",
+    },
+    {
+      coordinates: [-442.770179,40.329797 ],
+      state: "Ohio",
     },
     {
       coordinates: [-88.150558, 41.520557],
@@ -182,13 +196,26 @@ export default function UsMap() {
       name: "Kansas",
     },
     {
+      name: "Missouri",
+    },
+    {
+      name:"Ohio"
+    },
+    {
       name: "Illinois",
     },
   ];
+
+  const [isMarkerClicked, setIsMarkerClicked] = useState(false);
+  
   const handleStateLeave = () => {
-    setHoveredState("");
+    setHoveredState(""); 
+  
   };
 
+  const handleStateLeaveandSetSlider = () => {
+  
+  };
   return geoUrl !== "" ? (
     <>
       <div className="container-map">
@@ -204,20 +231,23 @@ export default function UsMap() {
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => {
+               console.log(geo.properties.name)
                 const state = geo.properties.name;
                 const IsMain = coordinatedDataStates.some((data) => {
                   return (
                     ("California" === state) |
                     ("Kansas" === state) |
                     ("Pennsylvania" === state) |
-                    ("Michigan" === state)
+                    ("Michigan" === state)|
+                    ("MO" === state)
                   );
                 });
                 const isHighlighted = coordinatedDataStates.some((data) => {
+               
                   return data.name === state;
+                 
                 });
-
-                console.log(geo.properties);
+ 
 
                 return (
                   <Geography
@@ -263,7 +293,11 @@ export default function UsMap() {
                     setHoveredState(state);
                   }
                 }}
-                onClick={handleStateLeave}
+                onClick={()=>{ 
+                    // setHoveredState(state);
+                    setIsMarkerClicked(true);
+                   
+                }}
               >
                 <>
                   {state === "Kansas City, MO" ? (
@@ -278,16 +312,19 @@ export default function UsMap() {
                   ) : (
                     <div></div>
                   )}
-                  {state === "Joliet, IL" ||
+                  {
+                    state==="Ohio"||
+                  state === "Kansas MO"||
+                  state === "Joliet, IL" ||
                   state === "Flagstaff, Arizona" ||
                   state === "Santa Fe, NM" ? (
                     <g
-                      fill="white"
-                      stroke="black"
-                      strokeWidth="1"
+                      fill="black"
+                      stroke="white"
+                      strokeWidth="2"
                       strokeLinecap="butt"
                       strokeLinejoin="miter"
-                      transform="translate(-12, -18)  scale(0.8)"
+                      transform="translate(-12, -22)  scale(0.9)"
                     >
                       <circle cx="12" cy="10" r="1" fill="white" />{" "}
                       {/* Yellow fill for the pin */}
@@ -295,12 +332,12 @@ export default function UsMap() {
                     </g>
                   ) : state === "Baltimore, Maryland" ? (
                     <g
-                      fill="white"
-                      stroke="black"
-                      strokeWidth="1"
-                      strokeLinecap="butt"
-                      strokeLinejoin="miter"
-                      transform="translate(-12, -28)  scale(0.8)"
+                    fill="black"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="butt"
+                    strokeLinejoin="miter"
+                    transform="translate(-12, -25)  scale(0.9)"
                     >
                       <circle cx="12" cy="10" r="1" fill="white" />{" "}
                       {/* Yellow fill for the pin */}
@@ -324,11 +361,21 @@ export default function UsMap() {
               </Marker>
             ))}
         </ComposableMap>
+        {/* {isMarkerClicked ? (
+          <div onClick={()=>{
+            setIsMarkerClicked(false)
+          }} style={{ position: "absolute"  }}>
+            <h1>tttssssssssssssssssssssssssssssssssssst</h1>
+          </div>
+        ): (
+          <div></div>
+        ) } */}
         {hoveredState !== "" ? (
           <CityInfoCard state={hoveredState} />
         ) : (
           <div></div>
         )}
+       
       </div>
 
       {isMobile && (
@@ -398,12 +445,12 @@ export default function UsMap() {
                     >
                       <span style={{ color: "orange" }}>
                         {" "}
-                        {KansasCityMO.stations[0].title }
+                        {KansasCityMO.stations[0].title.substring(0, 12) }
                       </span>
-                      {/* <span style={{ color: "red" }}>
+                      <span style={{ color: "red" }}>
                         {" "}
                         {KansasCityMO.stations[0].title.substring(13, 15)}
-                      </span> */}
+                      </span>
                     </h5>
 
                     <p className="card-text customcardtext">
@@ -482,6 +529,23 @@ export default function UsMap() {
                     </h5>
                     <p className="card-text customcardtext">
                       {Baltimore.stations[0].description}
+                    </p>
+                  </div>
+                </div>
+              }
+            </div>
+            <div className="card-container d-flex flex-wrap">
+              {
+                <div className="card myclass">
+                  <div className="card-body">
+                    <h5
+                      className="card-title customcardtitle"
+                      style={{ fontWeight: "bold" }}
+                    >
+                      {Ohio.stations[0].title}
+                    </h5>
+                    <p className="card-text customcardtext">
+                      {Ohio.stations[0].description}
                     </p>
                   </div>
                 </div>

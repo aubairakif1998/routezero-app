@@ -10,6 +10,15 @@ import WDLogo from "./Images/WD.png";
 
 import "./style.css";
 export default function CityInfoCard(props) {
+  const Ohio = {
+    stations: [
+      {
+        title: "Cleveland OH ",
+        description:
+          " ",
+      },
+    ],
+  };
   const LosAngelesCA = {
     stations: [
       {
@@ -201,14 +210,14 @@ export default function CityInfoCard(props) {
               className="card-title"
               style={{ color: "#E89725", fontWeight: "bold", fontSize: "18px" }}
             >
-              <span style={{ color: "orange" }}>
-                {" "}
-                {KansasCityMO.stations[0].title }
-              </span>
-              {/* <span style={{ color: "red" }}>
-                {" "}
-                {KansasCityMO.stations[0].title.substring(13, 15)}
-              </span> */}
+             <span style={{ color: "orange" }}>
+                        {" "}
+                        {KansasCityMO.stations[0].title.substring(0, 12) }
+                      </span>
+                      <span style={{ color: "red" }}>
+                        {" "}
+                        {KansasCityMO.stations[0].title.substring(13, 15)}
+                      </span>
             </h5>
             <p className="card-text">{KansasCityMO.stations[0].description}</p>
           </div>
@@ -335,6 +344,36 @@ export default function CityInfoCard(props) {
 
     </div>
   )
+  : props.state === "Ohio" ? (
+    <div
+      className="card-container d-flex flex-wrap"
+      style={{ position: "absolute", transform: "translate(-50%, 10px)" }}
+    >
+      {
+        <div
+          className="card"
+          style={{
+            flex: "0 0 auto",
+            margin: "10px",
+            maxWidth: "350px",
+            padding: "10px",
+            borderRadius: "20px",
+          }}
+        > 
+          <div className="card-body">
+            <h5
+              className="card-title"
+              style={{ color: "#E89725", fontWeight: "bold", fontSize: "18px" }}
+            >
+              {Ohio.stations[0].title}
+            </h5>
+            <p className="card-text">{Ohio.stations[0].description}</p>
+             
+          </div>
+        </div>
+      }
+    </div>
+  ) 
   : props.state === "Washington, DC" ? (
     <div
       className="card-container d-flex flex-wrap"
