@@ -74,7 +74,7 @@ export default function Clients() {
             <Box className="image16" my={5} p={5}></Box>
           </Grid>
 
-          <Grid item xs={3}>
+          <Grid item xs={5}>
             <Box className="image17" my={5} p={6}></Box>
           </Grid>
 
@@ -90,6 +90,24 @@ export default function Clients() {
           <Grid item xs={2}>
             <Box className="image21" my={5} p={5}></Box>
           </Grid>
+
+
+          <Grid item xs={4} sm={2.4}>
+            <Box className="image22" my={5} p={5}></Box>
+          </Grid>
+          <Grid item xs={6} sm={2.4}>
+            <Box className="image23" my={5} p={5}></Box>
+          </Grid>
+          <Grid item xs={6} sm={2.4}>
+            <Box className="image24" my={5} p={5}></Box>
+          </Grid>
+          <Grid item xs={6} sm={2.4}>
+            <Box className="image25" my={5} p={5}></Box>
+          </Grid>
+          <Grid item xs={6} sm={2}>
+            <Box className="image26" my={5} p={5}></Box>
+          </Grid>
+
         </StyledGrid>
       </div>
     </>

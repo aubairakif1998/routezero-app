@@ -17,11 +17,19 @@ export default function CityInfoCard(props) {
         description:
           "Route Zero is kicking off at the end of historic Route 66 in Santa Monica! What better way to charge ahead to a zero emissions future than with a nod to the history and nostalgia of Route 66?",
       },
+    ],
+  };
+  const Flagstaff = {
+    stations: [
       {
         title: "Flagstaff, Arizona",
         description:
           "The Route Zero Relay will be stopping in Arizona on our zero emission trek across the country. Strong cleaner cars standards will help reduce tailpipe pollution and protect the health of Arizonans and people all across the country.",
       },
+    ],
+  };
+  const SantaFe = {
+    stations: [
       {
         title: "Santa Fe, NM",
         description:
@@ -36,6 +44,10 @@ export default function CityInfoCard(props) {
         description:
           "Our Route Zero Relay team will be holding a press event and rally in Kansas City, MO in May with advocates, community members and elected leaders like Kansas City, MO’s Mayor Quinton Lucas!",
       },
+    ],
+  };
+  const Joliet = {
+    stations: [
       {
         title: "Joliet, IL",
         description:
@@ -60,6 +72,10 @@ export default function CityInfoCard(props) {
         description:
           "We will be rallying for strong cleaner cars standards and a zero emission transportation future in Pittsburgh! Route Zero will be holding a press conference and rally to highlight the importance of public health protection, job creation, and consumer savings!.",
       },
+    ],
+  };
+  const Baltimore = {
+    stations: [
       {
         title: "Baltimore, Maryland",
         description:
@@ -82,74 +98,86 @@ export default function CityInfoCard(props) {
       style={{ position: "absolute", transform: "translate(50%, 10px)" }}
     >
       {
-    
-      (
-        <>
-          {" "}
-          <div className="card-container flexconY">
-            <div className=" flexcon ">
-              <div className="row1logo bgimageLA"></div>
-              <div className="row1station1">
-                <h6 className="card-title" style={{ color: "#E89725" }}>
-                &#8226;{LosAngelesCA.stations[1].title}
-                </h6>
-                <p
-                  className="card-text"
-                  style={{
-                    color: "#555555",
-                    textAlign: "left",
-                    fontSize: "14px",
-                    paddingTop: "10px",
-                  }}
-                >
-                  {LosAngelesCA.stations[1].description}
-                </p>
-              </div>
-            </div>
-            <div className=" flexcon">
-              <div className="row1station2">
-                <h6 className="card-title" style={{ color: "#E89725",fontWeight:"bold",fontSize:"18px"  }}>
-                   {LosAngelesCA.stations[0].title}
-                </h6>
-                <p
-                  className="card-text"
-                  style={{
-                    color: "#555555",
-                    textAlign: "left",
-                    fontSize: "14px",
-                    paddingTop: "10px",
-                  }}
-                >
-                  {LosAngelesCA.stations[0].description}
-                </p>
-              </div>
-              <div className="row1station3"> 
-              <h6 className="card-title" style={{ color: "#E89725" }}>
-                  &#8226; {LosAngelesCA.stations[2].title}
-                </h6>
-                <p
-                  className="card-text"
-                  style={{
-                    color: "#555555",
-                    textAlign: "left",
-                    fontSize: "14px",
-                    paddingTop: "10px",
-                  }}
-                >
-                  {LosAngelesCA.stations[2].description}
-                </p>
-              </div>
-            </div>
-            {/* <a
-              href="/"
-              className="btn btn-primary"
-              style={{ margin: "20px", backgroundColor: "#E89725" }}
+        <div
+          className="card"
+          style={{
+            flex: "0 0 auto",
+            margin: "10px",
+            maxWidth: "350px",
+            padding: "10px",
+            borderRadius: "20px",
+          }}
+        >
+          <img className="card-img-top" src={LALogo} alt="carddetail" />
+          <div className="card-body">
+            <h5
+              className="card-title"
+              style={{ color: "#E89725", fontWeight: "bold", fontSize: "18px" }}
             >
-              Learn more
-            </a> */}
+              {LosAngelesCA.stations[0].title}
+            </h5>
+            <p className="card-text">{LosAngelesCA.stations[0].description}</p>
           </div>
-        </>
-      )}
+        </div>
+      }
+    </div>
+  ) : props.state === "Flagstaff, Arizona" ? (
+    <div
+      className="card-container d-flex flex-wrap"
+      style={{ position: "absolute", transform: "translate( 50%, 10px)" }}
+    >
+      {
+        <div
+          className="card"
+          style={{
+            flex: "0 0 auto",
+            margin: "10px",
+            maxWidth: "350px",
+            padding: "10px",
+            borderRadius: "20px",
+          }}
+        >
+          {/* <img className="card-img-top" src={LALogo} alt="carddetail" /> */}
+          <div className="card-body">
+            <h5
+              className="card-title"
+              style={{ color: "#E89725", fontWeight: "bold", fontSize: "18px" }}
+            >
+              {Flagstaff.stations[0].title}
+            </h5>
+            <p className="card-text">{Flagstaff.stations[0].description}</p>
+          </div>
+        </div>
+      }
+    </div>
+  ) : props.state === "Santa Fe, NM" ? (
+    <div
+      className="card-container d-flex flex-wrap"
+      style={{ position: "absolute", transform: "translate( 50%, 10px)" }}
+    >
+      {
+        <div
+          className="card"
+          style={{
+            flex: "0 0 auto",
+            margin: "10px",
+            maxWidth: "350px",
+            padding: "10px",
+            borderRadius: "20px",
+          }}
+        >
+          {/* <img className="card-img-top" src={LALogo} alt="carddetail" /> */}
+          <div className="card-body">
+            <h5
+              className="card-title"
+              style={{ color: "#E89725", fontWeight: "bold", fontSize: "18px" }}
+            >
+              {SantaFe.stations[0].title}
+            </h5>
+            <p className="card-text">{SantaFe.stations[0].description}</p>
+          </div>
+        </div>
+      }
     </div>
   ) : props.state === "Kansas City, MO" ? (
     <div
@@ -157,70 +185,71 @@ export default function CityInfoCard(props) {
       style={{ position: "absolute", transform: "translate(-50%, 10px)" }}
     >
       {
-      
-      (
-        <>
-          {" "}
-          <div className="card-container flexconY ">
-            <div className=" flexcon">
-              <div className="row1logo bgimageKC"></div>
-              <div className="row1station1">
-              
-                <h6 className="card-title" style={{ color: "#E89725"}}>
-                  &#8226; {KansasCityMO.stations[1].title}             
-                </h6>
-                
-                <p
-                  className="card-text"
-                  style={{
-                    color: "#555555",
-                    textAlign: "left",
-                    fontSize: "14px",
-                    paddingTop: "10px",
-                  }}
-                >
-                  {KansasCityMO.stations[1].description}
-                </p>
-              </div>
-            </div>
-            <div className=" flexcon">
-              <div className="row1station2">
-                
-                <h6 className="card-title" style={{ color: "#E89725",fontWeight:"bold" ,fontSize:"18px"  }}>
-                    {KansasCityMO.stations[0].title} 
-                </h6>
-                
-                <p
-                  className="card-text"
-                  style={{
-                    color: "#555555",
-                    textAlign: "left",
-                    fontSize: "14px",
-                    paddingTop: "10px",
-                  }}
-                >
-                  {KansasCityMO.stations[0].description}
-                </p>
-              </div>
-              {/* <div className="row1station3"> </div> */}
-            </div>
-            {/* <a
-              href="/"
-              className="btn btn-secondary"
-              style={{ margin: "20px", backgroundColor: "#E89725" }}
+        <div
+          className="card"
+          style={{
+            flex: "0 0 auto",
+            margin: "10px",
+            maxWidth: "350px",
+            padding: "10px",
+            borderRadius: "20px",
+          }}
+        >
+          <img className="card-img-top" src={KCLogo} alt="carddetail" />
+          <div className="card-body">
+            <h5
+              className="card-title"
+              style={{ color: "#E89725", fontWeight: "bold", fontSize: "18px" }}
             >
-              Learn more
-            </a> */}
+              <span style={{ color: "orange" }}>
+                {" "}
+                {KansasCityMO.stations[0].title }
+              </span>
+              {/* <span style={{ color: "red" }}>
+                {" "}
+                {KansasCityMO.stations[0].title.substring(13, 15)}
+              </span> */}
+            </h5>
+            <p className="card-text">{KansasCityMO.stations[0].description}</p>
           </div>
-        </>
-      )}
+        </div>
+      }
+    </div>
+  ) : props.state === "Joliet, IL" ? (
+    <div
+      className="card-container d-flex flex-wrap"
+      style={{ position: "absolute", transform: "translate(-50%, 10px)" }}
+    >
+      {
+        <div
+          className="card"
+          style={{
+            flex: "0 0 auto",
+            margin: "10px",
+            maxWidth: "350px",
+            padding: "10px",
+            borderRadius: "20px",
+          }}
+        >
+          {/* <img className="card-img-top" src={KCLogo} alt="carddetail" /> */}
+          <div className="card-body">
+            <h5
+              className="card-title"
+              style={{ color: "#E89725", fontWeight: "bold", fontSize: "18px" }}
+            >
+              <span> {Joliet.stations[0].title}</span>
+            </h5>
+            <p className="card-text">{KansasCityMO.stations[0].description}</p>
+          </div>
+        </div>
+      }
     </div>
   ) : props.state === "Detroit, Michigan" ? (
     <div
       className="card-container d-flex flex-wrap"
       style={{ position: "absolute", transform: "translate(-50%, 10px)" }}
     >
-      { (
+      {
         <div
           className="card "
           style={{
@@ -233,87 +262,20 @@ export default function CityInfoCard(props) {
         >
           <img className="card-img-top" src={DMLogo} alt="carddetail" />
           <div className="card-body">
-            <h5 className="card-title" style={{ color: "#E89725",fontWeight:"bold"  ,fontSize:"18px" }}>
+            <h5
+              className="card-title"
+              style={{ color: "#E89725", fontWeight: "bold", fontSize: "18px" }}
+            >
               {DetroitMichigan.stations[0].title}
             </h5>
             <p className="card-text">
               {DetroitMichigan.stations[0].description}
             </p>
-            {/* <a
-              href="/"
-              className="btn btn-primary"
-              style={{
-                display: "block",
-                marginLeft: "70px",
-                marginRight: "70px",
-                backgroundColor: "#E89725",
-              }}
-            >
-              Learn more
-            </a> */}
           </div>
         </div>
-      ) }
+      }
     </div>
   ) : props.state === "Pittsburgh, Pennsylvania" ? (
-    <div
-      className="card-container d-flex flex-wrap"
-      style={{ position: "absolute", transform: "translate(-50%, 10px)" }}
-    >
-      {   (
-        <>
-          {" "}
-          <div className="card-container flexconY">
-            <div className=" flexcon">
-              <div className="row1logo bgimagePP"></div>
-              <div className="row1station1">
-                <h6 className="card-title" style={{ color: "#E89725" }}>
-                  &#8226; {PittsburghPennsylvania.stations[1].title}
-                </h6>
-                <p
-                  className="card-text"
-                  style={{
-                    color: "#555555",
-                    textAlign: "left",
-                    fontSize: "14px",
-                    paddingTop: "10px",
-                  }}
-                >
-                  {PittsburghPennsylvania.stations[1].description}
-                </p>
-              </div>
-            </div>
-            <div className=" flexcon">
-              <div className="row1station2">
-                <h6 className="card-title" style={{ color: "#E89725",fontWeight:"bold",fontSize:"18px"  }}>
-                    {PittsburghPennsylvania.stations[0].title}
-                </h6>
-                <p
-                  className="card-text"
-                  style={{
-                    color: "#555555",
-                    textAlign: "left",
-                    fontSize: "14px",
-                    paddingTop: "10px",
-                  }}
-                >
-                  {PittsburghPennsylvania.stations[0].description}
-                </p>
-              </div>
-              {/* <div className="row1station3"> </div> */}
-            </div>
-            {/* <a
-              href="/"
-              className="btn btn-secondary"
-              style={{ margin: "20px", backgroundColor: "#E89725" }}
-            >
-              Learn more
-            </a> */}
-          </div>
-        </>
-      )}
-    </div>
-  ) : props.state === "Washington, DC" ? (
     <div
       className="card-container d-flex flex-wrap"
       style={{ position: "absolute", transform: "translate(-50%, 10px)" }}
@@ -329,29 +291,79 @@ export default function CityInfoCard(props) {
             borderRadius: "20px",
           }}
         >
-          <img className="card-img-top" src={WDLogo} alt="carddetail" />
+          <img className="card-img-top" src={PPLogo} alt="carddetail" />
           <div className="card-body">
             <h5 className="card-title" style={{ color: "#E89725",fontWeight:"bold"  ,fontSize:"18px" }}>
-              {WashingtonDC.stations[0].title}
+              {PittsburghPennsylvania.stations[0].title}
             </h5>
-            <p className="card-text">{WashingtonDC.stations[0].description}</p>
-            {/* <a
-              href="/"
-              className="btn btn-primary"
-              style={{
-                display: "block",
-                marginLeft: "70px",
-                marginRight: "70px",
-                backgroundColor: "#E89725",
-              }}
-            >
-              Learn more
-            </a> */}
+            <p className="card-text">{PittsburghPennsylvania.stations[0].description}</p>
+            
           </div>
         </div>
       ) 
             }
 
+    </div>
+  )
+  : props.state === "Baltimore, Maryland" ? (
+    <div
+      className="card-container d-flex flex-wrap"
+      style={{ position: "absolute", transform: "translate(-50%, 10px)" }}
+    >
+      { (
+        <div
+          className="card"
+          style={{
+            flex: "0 0 auto",
+            margin: "10px",
+            maxWidth: "350px",
+            padding: "10px",
+            borderRadius: "20px",
+          }}
+        >
+          {/* <img className="card-img-top" src={PPLogo} alt="carddetail" /> */}
+          <div className="card-body">
+            <h5 className="card-title" style={{ color: "#E89725",fontWeight:"bold"  ,fontSize:"18px" }}>
+              {Baltimore.stations[0].title}
+            </h5>
+            <p className="card-text">{Baltimore.stations[0].description}</p>
+            
+          </div>
+        </div>
+      ) 
+            }
+
+    </div>
+  )
+  : props.state === "Washington, DC" ? (
+    <div
+      className="card-container d-flex flex-wrap"
+      style={{ position: "absolute", transform: "translate(-50%, 10px)" }}
+    >
+      {
+        <div
+          className="card"
+          style={{
+            flex: "0 0 auto",
+            margin: "10px",
+            maxWidth: "350px",
+            padding: "10px",
+            borderRadius: "20px",
+          }}
+        >
+          <img className="card-img-top" src={WDLogo} alt="carddetail" />
+          <div className="card-body">
+            <h5
+              className="card-title"
+              style={{ color: "#E89725", fontWeight: "bold", fontSize: "18px" }}
+            >
+              {WashingtonDC.stations[0].title}
+            </h5>
+            <p className="card-text">{WashingtonDC.stations[0].description}</p>
+             
+          </div>
+        </div>
+      }
     </div>
   ) : (
     <div></div>

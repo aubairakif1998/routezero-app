@@ -164,6 +164,46 @@
     position: relative;
   }
   
+  .image22{
+    background-image: url('./Images/A22.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:  contain; 
+    position: relative;
+  }
+
+  .image23{
+    background-image: url('./Images/A23.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:  contain; 
+    position: relative;
+  }
+
+
+  .image24{
+    background-image: url('./Images/A24.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:  contain; 
+    position: relative;
+  }
+
+  .image25{
+    background-image: url('./Images/A25.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:  contain; 
+    position: relative;
+  }
+
+  .image26{
+    background-image: url('./Images/A26.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:  contain; 
+    position: relative;
+  }
 .padding{
   
 background-color: rgb(185, 184, 184);
