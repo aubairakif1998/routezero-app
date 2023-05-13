@@ -223,7 +223,7 @@ export default function UsMap() {
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
-                    fill={IsMain ? "red" : isHighlighted ? "orange" : "#669DA6"}
+                    fill={IsMain ? "green" : isHighlighted ? "orange" : "#669DA6"}
                     stroke="#f3e9b4"
                     strokeWidth={2}
                     style={{
