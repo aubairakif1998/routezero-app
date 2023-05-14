@@ -203,6 +203,19 @@
     background-repeat: no-repeat;
     background-size:  contain; 
     position: relative;
+  }.image26{
+    background-image: url('./Images/A26.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:  contain; 
+    position: relative;
+  }
+  .image27{
+    background-image: url('./Images/A27.png'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:  contain; 
+    position: relative;
   }
 .padding{
   

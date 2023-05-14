@@ -1,25 +1,19 @@
-import "./App.css";
-import Header from "./components/Header/Header";
-import Slider from "./components/Slider/Slider";
-import Clients from "./components/Clients/Clients";
-import Footer from "./components/Footer/Footer";
-import Banner from "./components/Banner/Banner";
-import UsMap from "./components/Map/UsMap";
+import "./App.css"; 
+import HomPage from "./HomPage"; 
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import GalleryPage from './components/Map/GalleryPage';
 
 function App() {
   return (
-    <div
-     
-    >
-      <Header />
-      <Slider />
-      <Banner />
-      <UsMap />
-      <Clients />
-      
-      <Footer />
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/gallery" element={<GalleryPage />}   />
+      <Route path="/" element={<HomPage />}  />
+    </Routes>
+  </BrowserRouter>
   );
 }
 
 export default App;
+ 

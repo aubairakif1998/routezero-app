@@ -2,11 +2,28 @@ import React, { useState } from "react";
 import CityInfoCard from "./CityInfoCard";
 import LALogo from "./Images/LA.png";
 import KCLogo from "./Images/KC.png";
-
+import GalleryPage from "./GalleryPage";
 import PPLogo from "./Images/PP.png";
-import { memo } from "react";
 import DMLogo from "./Images/DM.png";
-
+import "yet-another-react-lightbox/styles.css";
+import J1 from "./Images/J1.png";
+import J2 from "./Images/J2.png";
+import J3 from "./Images/J3.png";
+import J4 from "./Images/J4.png";
+import J5 from "./Images/J5.png";
+import J6 from "./Images/J6.png";
+import J7 from "./Images/J7.png";
+import J8 from "./Images/J8.png";
+import J9 from "./Images/J9.png";
+import J10 from "./Images/J10.png";
+import J11 from "./Images/J11.png";
+import J12 from "./Images/J12.png";
+import J13 from "./Images/J13.png";
+import AZ01 from "./Images/AZ01.png"; 
+import AZ1 from "./Images/AZ1.png";
+import AZ2 from "./Images/AZ2.png";
+import AZ3 from "./Images/AZ3.png";
+import AZ4 from "./Images/AZ4.png";
 import WDLogo from "./Images/WD.png";
 import { SVGImageElement } from "react";
 import {
@@ -24,6 +41,46 @@ const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/united-states/us-albers.json";
 
 export default function UsMap() {
+  const J1Images = [
+    J1,
+    J2,
+    J3,
+    J4,
+    J5,
+    J6,
+    J7,
+    J8,
+    J9,
+    J10,
+    J11,
+    J12,
+    J13,
+  ];
+  const AZ01Images = [
+    AZ01
+    
+  ];
+  const AZImages = [
+    AZ1,
+    AZ2,
+    AZ3,
+    AZ4,
+  ];
+  
+
+  const [currentImage, setCurrentImage] = useState(0);
+  const [isViewerOpen, setIsViewerOpen] = useState(false);
+
+  const openImageViewer = (index) => {
+    setCurrentImage(index);
+    setIsViewerOpen(true);
+  };
+
+  const closeImageViewer = () => {
+    setCurrentImage(0);
+    setIsMarkerClicked("");
+  };
+
   const isMobile = document.documentElement.clientWidth <= 415;
 
   // console.log(isMobile);
@@ -116,6 +173,11 @@ export default function UsMap() {
           "The culmination of the Route Zero Relay trip across the country, will be at EPA headquarters in DC where we will deliver comments from people all across the country who want the strongest standards possible to put us on the route to Zero Emissions!",
       },
     ],
+  };
+  const [showImages, setShowImages] = useState(false);
+
+  const toggleShowImages = () => {
+    setShowImages(!showImages);
   };
   const [hoveredState, setHoveredState] = useState("");
   const trailCoords = [
@@ -254,7 +316,7 @@ export default function UsMap() {
                     stroke="#f3e9b4"
                     strokeWidth={2}
                     onClick={() => {
-                      console.log(geo.properties.name +"  AUBAIR");
+                      console.log(geo.properties.name + "  AUBAIR");
                       setIsMarkerClicked(geo.properties.name);
                     }}
                     style={{
@@ -360,36 +422,45 @@ export default function UsMap() {
             ))}
         </ComposableMap>
         {isMarkerClicked === "New Mexico" ? (
-          <div style={{ position: "absolute" }}>
-            <NMImageSlider
-              handleClose={() => {
-                setIsMarkerClicked("");
-                setHoveredState("");
-              }}
+          // <div
+          //   style={{
+          //     position: "absolute",
+          //     width: "100vh",
+          //     height: "100vh",
+          //     backgroundColor: "black",
+          //   }}
+          // >
+          //   <NMImageSlider
+          //     handleClose={() => {
+          //       setIsMarkerClicked("");
+          //       setHoveredState("");
+          //     }}
+          //   />
+          // </div>
+          AZImages.map((src, index) => (
+            <GalleryPage
+              images={J1Images}
+              currentImage={index}
+              closeImageViewer={closeImageViewer}
             />
-            
-          </div>
+          ))
         ) : isMarkerClicked === "Arizona" ? (
-          <div style={{ position: "absolute" }}>
-            <AZZImageSlider
-              handleClose={() => {
-                setIsMarkerClicked("");
-                setHoveredState("");
-              }}
+          AZ01Images.map((src, index) => (
+            <GalleryPage
+              images={J1Images}
+              currentImage={index}
+              closeImageViewer={closeImageViewer}
             />
-          
-          </div>
-        ) :isMarkerClicked === "Illinois" ? (
-          <div style={{ position: "absolute" }}>
-            <JlImageSlider
-              handleClose={() => {
-                setIsMarkerClicked("");
-                setHoveredState("");
-              }}
+          ))
+        ) : isMarkerClicked === "Illinois" ? (
+          J1Images.map((src, index) => (
+            <GalleryPage
+              images={J1Images}
+              currentImage={index}
+              closeImageViewer={closeImageViewer}
             />
-          
-          </div>
-        ): (
+          ))
+        ) : (
           <div></div>
         )}
 
