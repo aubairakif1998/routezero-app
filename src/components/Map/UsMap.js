@@ -4,7 +4,7 @@ import LALogo from "./Images/LA.png";
 import KCLogo from "./Images/KC.png";
 
 import PPLogo from "./Images/PP.png";
-
+import { memo } from "react";
 import DMLogo from "./Images/DM.png";
 
 import WDLogo from "./Images/WD.png";
@@ -16,6 +16,10 @@ import {
   Marker,
   Line,
 } from "react-simple-maps";
+import AZZImageSlider from "./AZZImageSlider";
+import JlImageSlider from "./JlImageSlider";
+import NMImageSlider from "./NMImageSlider";
+
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/united-states/us-albers.json";
 
@@ -36,8 +40,7 @@ export default function UsMap() {
     stations: [
       {
         title: "Cleveland OH ",
-        description:
-          " ",
+        description: " ",
       },
     ],
   };
@@ -121,15 +124,15 @@ export default function UsMap() {
     [-105.944183, 35.691544],
     [-94.578331, 39.099724],
     [-88.150558, 41.520557],
-    [-444.353266,42.795402,  ],
-    [-442.770179,40.329797 ],
-    [-438.543454, 41.525032 ],
+    [-444.353266, 42.795402],
+    [-442.770179, 40.329797],
+    [-438.543454, 41.525032],
     [-76.609383, 39.299236],
     [-77.007507, 38.900497],
   ];
   const coordinatedData = [
     {
-      coordinates: [-438.543454, 41.525032 ],
+      coordinates: [-438.543454, 41.525032],
       state: "Pittsburgh, Pennsylvania",
     },
     {
@@ -137,11 +140,11 @@ export default function UsMap() {
       state: "Baltimore, Maryland",
     },
     {
-      coordinates: [-437.004341, 38.805472 ],
+      coordinates: [-437.004341, 38.805472],
       state: "Washington, DC",
     },
     {
-      coordinates: [-444.353266,42.795402,  ],
+      coordinates: [-444.353266, 42.795402],
       state: "Detroit, Michigan",
     },
     {
@@ -161,7 +164,7 @@ export default function UsMap() {
       state: "Kansas City, MO",
     },
     {
-      coordinates: [-442.770179,40.329797 ],
+      coordinates: [-442.770179, 40.329797],
       state: "Ohio",
     },
     {
@@ -199,23 +202,20 @@ export default function UsMap() {
       name: "Missouri",
     },
     {
-      name:"Ohio"
+      name: "Ohio",
     },
     {
       name: "Illinois",
     },
   ];
 
-  const [isMarkerClicked, setIsMarkerClicked] = useState(false);
-  
+  const [isMarkerClicked, setIsMarkerClicked] = useState("");
+
   const handleStateLeave = () => {
-    setHoveredState(""); 
-  
+    setHoveredState("");
   };
 
-  const handleStateLeaveandSetSlider = () => {
-  
-  };
+  const handleStateLeaveandSetSlider = () => {};
   return geoUrl !== "" ? (
     <>
       <div className="container-map">
@@ -231,23 +231,20 @@ export default function UsMap() {
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => {
-               console.log(geo.properties.name)
+                // console.log(geo.properties.name);
                 const state = geo.properties.name;
                 const IsMain = coordinatedDataStates.some((data) => {
                   return (
                     ("California" === state) |
                     ("Kansas" === state) |
                     ("Pennsylvania" === state) |
-                    ("Michigan" === state)|
+                    ("Michigan" === state) |
                     ("MO" === state)
                   );
                 });
                 const isHighlighted = coordinatedDataStates.some((data) => {
-               
                   return data.name === state;
-                 
                 });
- 
 
                 return (
                   <Geography
@@ -256,6 +253,10 @@ export default function UsMap() {
                     fill={IsMain ? "red" : isHighlighted ? "orange" : "#669DA6"}
                     stroke="#f3e9b4"
                     strokeWidth={2}
+                    onClick={() => {
+                      console.log(geo.properties.name +"  AUBAIR");
+                      setIsMarkerClicked(geo.properties.name);
+                    }}
                     style={{
                       default: {
                         outline: "#0000",
@@ -289,14 +290,12 @@ export default function UsMap() {
                 coordinates={coordinates}
                 onMouseEnter={() => {
                   if (!isMobile) {
-                    console.log(state);
+                    // console.log(state);
                     setHoveredState(state);
                   }
                 }}
-                onClick={()=>{ 
-                    // setHoveredState(state);
-                    setIsMarkerClicked(true);
-                   
+                onMouseLeave={() => {
+                  setHoveredState("");
                 }}
               >
                 <>
@@ -312,9 +311,8 @@ export default function UsMap() {
                   ) : (
                     <div></div>
                   )}
-                  {
-                    state==="Ohio"||
-                  state === "Kansas MO"||
+                  {state === "Ohio" ||
+                  state === "Kansas MO" ||
                   state === "Joliet, IL" ||
                   state === "Flagstaff, Arizona" ||
                   state === "Santa Fe, NM" ? (
@@ -332,12 +330,12 @@ export default function UsMap() {
                     </g>
                   ) : state === "Baltimore, Maryland" ? (
                     <g
-                    fill="black"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="butt"
-                    strokeLinejoin="miter"
-                    transform="translate(-12, -25)  scale(0.9)"
+                      fill="black"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="butt"
+                      strokeLinejoin="miter"
+                      transform="translate(-12, -25)  scale(0.9)"
                     >
                       <circle cx="12" cy="10" r="1" fill="white" />{" "}
                       {/* Yellow fill for the pin */}
@@ -361,21 +359,45 @@ export default function UsMap() {
               </Marker>
             ))}
         </ComposableMap>
-        {/* {isMarkerClicked ? (
-          <div onClick={()=>{
-            setIsMarkerClicked(false)
-          }} style={{ position: "absolute"  }}>
-            <h1>tttssssssssssssssssssssssssssssssssssst</h1>
+        {isMarkerClicked === "New Mexico" ? (
+          <div style={{ position: "absolute" }}>
+            <NMImageSlider
+              handleClose={() => {
+                setIsMarkerClicked("");
+                setHoveredState("");
+              }}
+            />
+            
+          </div>
+        ) : isMarkerClicked === "Arizona" ? (
+          <div style={{ position: "absolute" }}>
+            <AZZImageSlider
+              handleClose={() => {
+                setIsMarkerClicked("");
+                setHoveredState("");
+              }}
+            />
+          
+          </div>
+        ) :isMarkerClicked === "Illinois" ? (
+          <div style={{ position: "absolute" }}>
+            <JlImageSlider
+              handleClose={() => {
+                setIsMarkerClicked("");
+                setHoveredState("");
+              }}
+            />
+          
           </div>
         ): (
           <div></div>
-        ) } */}
-        {hoveredState !== "" ? (
+        )}
+
+        {hoveredState !== "" && !isMarkerClicked ? (
           <CityInfoCard state={hoveredState} />
         ) : (
           <div></div>
         )}
-       
       </div>
 
       {isMobile && (
@@ -395,7 +417,6 @@ export default function UsMap() {
                     <p className="card-text customcardtext">
                       {LosAngelesCA.stations[0].description}
                     </p>
-                   
                   </div>
                 </div>
               }
@@ -445,7 +466,7 @@ export default function UsMap() {
                     >
                       <span style={{ color: "orange" }}>
                         {" "}
-                        {KansasCityMO.stations[0].title.substring(0, 12) }
+                        {KansasCityMO.stations[0].title.substring(0, 12)}
                       </span>
                       <span style={{ color: "red" }}>
                         {" "}
