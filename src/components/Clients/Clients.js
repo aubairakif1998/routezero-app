@@ -79,7 +79,7 @@ export default function Clients() {
           </Grid>
 
           <Grid item xs={4}>
-            <Box className="image18" my={5} p={5}></Box>
+            <Box className="image21" my={5} p={5}></Box>
           </Grid>
           <Grid item xs={4}>
             <Box className="image19" my={5} p={5}></Box>
@@ -87,29 +87,35 @@ export default function Clients() {
           <Grid item  >
             <Box className="image20 padding"   ></Box>
           </Grid>
-          <Grid item xs={4}>
-            <Box className="image21" my={5} p={5}></Box>
-          </Grid>
+          
 
 
-          <Grid item xs={4} sm={2.4}>
-            <Box className="image22" my={5} p={5}></Box>
-          </Grid>
-          <Grid item xs={4} sm={2.4}>
-            <Box className="image23" my={5} p={5}></Box>
-          </Grid>
-          <Grid item xs={5} sm={2.4}>
-            <Box className="image24" my={5} p={5}></Box>
-          </Grid>
-          <Grid item xs={7} sm={4}>
+
+
+
+          <Grid item xs={3} sm={4}>
             <Box className="image25" my={5} p={5}></Box>
-          </Grid>
-          <Grid item xs={2} sm={2}>
-            <Box className="image26" my={5} p={5}></Box>
-          </Grid>
-          <Grid item xs={6} sm={2}>
+          </Grid> 
+          <Grid item xs={3} sm={4}>
             <Box className="image27" my={5} p={5}></Box>
+          </Grid> 
+          <Grid item xs={3} sm={4}>
+            <Box className="image23" my={4} p={5}></Box>
           </Grid>
+
+
+          <Grid item xs={3} sm={3}>
+            <Box className="image24" my={3} p={5}></Box>
+          </Grid> 
+          <Grid item xs={3}sm={3}>
+            <Box className="image18" my={3} p={5}></Box>
+          </Grid>
+          <Grid item xs={3} sm={3}>
+            <Box className="image26" my={-1} p={12}></Box>
+          </Grid>
+          <Grid item xs={3} sm={3} >
+            <Box className="image22" my={2} p={7}></Box>
+          </Grid> 
 
         </StyledGrid>
       </div>

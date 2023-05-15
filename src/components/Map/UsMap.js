@@ -19,7 +19,25 @@ import J10 from "./Images/J10.png";
 import J11 from "./Images/J11.png";
 import J12 from "./Images/J12.png";
 import J13 from "./Images/J13.png";
-import AZ01 from "./Images/AZ01.png"; 
+import AZ01 from "./Images/AZ01.png";
+import AZ02 from "./Images/AZ02.png";
+import AZ03 from "./Images/AZ03.png";
+import AZ04 from "./Images/AZ04.png";
+import AZ05 from "./Images/AZ05.png";
+import AZ06 from "./Images/AZ06.png";
+import AZ07 from "./Images/AZ07.png";
+import AZ08 from "./Images/AZ08.png";
+import AZ09 from "./Images/AZ09.png";
+import AZ010 from "./Images/AZ010.png";
+import AZ011 from "./Images/AZ011.png";
+import AZ012 from "./Images/AZ012.png";
+import AZ013 from "./Images/AZ013.png";
+import AZ014 from "./Images/AZ014.png";
+import AZ015 from "./Images/AZ015.png";
+import AZ017 from "./Images/AZ017.png";
+import AZ018 from "./Images/AZ018.png";
+import AZ019 from "./Images/AZ019.png";
+import AZ020 from "./Images/AZ020.png";
 import AZ1 from "./Images/AZ1.png";
 import AZ2 from "./Images/AZ2.png";
 import AZ3 from "./Images/AZ3.png";
@@ -41,49 +59,20 @@ const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/united-states/us-albers.json";
 
 export default function UsMap() {
-  const J1Images = [
-    J1,
-    J2,
-    J3,
-    J4,
-    J5,
-    J6,
-    J7,
-    J8,
-    J9,
-    J10,
-    J11,
-    J12,
-    J13,
-  ];
-  const AZ01Images = [
-    AZ01
-    
-  ];
-  const AZImages = [
-    AZ1,
-    AZ2,
-    AZ3,
-    AZ4,
-  ];
-  
-
+  const J1Images = [J1, J2, J3, J4, J5, J6, J7, J8, J9, J10, J11, J12, J13];
+  const AZ01Images = [AZ01,AZ02,AZ03,AZ04,AZ05,AZ06,AZ07,AZ08,AZ09,AZ010,AZ011,AZ012,AZ013,AZ014,AZ015,AZ017,AZ018,AZ019,AZ020];
+  const AZImages = [AZ1, AZ2, AZ3, AZ4];
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
-
   const openImageViewer = (index) => {
     setCurrentImage(index);
     setIsViewerOpen(true);
   };
-
   const closeImageViewer = () => {
     setCurrentImage(0);
     setIsMarkerClicked("");
   };
-
   const isMobile = document.documentElement.clientWidth <= 415;
-
-  // console.log(isMobile);
   const LosAngelesCA = {
     stations: [
       {
@@ -185,8 +174,9 @@ export default function UsMap() {
     [-111.651299, 35.198284],
     [-105.944183, 35.691544],
     [-94.578331, 39.099724],
-    [-88.150558, 41.520557],
-    [-444.353266, 42.795402],
+    [-89.242198,39.744364],
+    // [-88.150558, 41.520557],
+    [-444.353266 , 42.795402],
     [-442.770179, 40.329797],
     [-438.543454, 41.525032],
     [-76.609383, 39.299236],
@@ -230,11 +220,10 @@ export default function UsMap() {
       state: "Ohio",
     },
     {
-      coordinates: [-88.150558, 41.520557],
+      coordinates: [-89.242198,39.744364],//[-88.150558, 41.520557],
       state: "Joliet, IL",
     },
   ];
-
   const coordinatedDataStates = [
     {
       name: "Pennsylvania",
@@ -270,13 +259,10 @@ export default function UsMap() {
       name: "Illinois",
     },
   ];
-
   const [isMarkerClicked, setIsMarkerClicked] = useState("");
-
   const handleStateLeave = () => {
     setHoveredState("");
   };
-
   const handleStateLeaveandSetSlider = () => {};
   return geoUrl !== "" ? (
     <>
@@ -293,7 +279,6 @@ export default function UsMap() {
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => {
-                // console.log(geo.properties.name);
                 const state = geo.properties.name;
                 const IsMain = coordinatedDataStates.some((data) => {
                   return (
@@ -322,13 +307,12 @@ export default function UsMap() {
                     style={{
                       default: {
                         outline: "#0000",
-                        // backgroundImage: "url('./Images/loc.png')",
                       },
                       hover: {
                         fill: IsMain
                           ? "red"
                           : isHighlighted
-                          ? "orange"
+                          ? "#eb8934"
                           : "#4C7A81",
                         outline: "none",
                       },
@@ -439,7 +423,7 @@ export default function UsMap() {
           // </div>
           AZImages.map((src, index) => (
             <GalleryPage
-              images={J1Images}
+              images={AZImages}
               currentImage={index}
               closeImageViewer={closeImageViewer}
             />
@@ -447,7 +431,7 @@ export default function UsMap() {
         ) : isMarkerClicked === "Arizona" ? (
           AZ01Images.map((src, index) => (
             <GalleryPage
-              images={J1Images}
+              images={AZ01Images}
               currentImage={index}
               closeImageViewer={closeImageViewer}
             />
@@ -657,13 +641,6 @@ export default function UsMap() {
                     <p className="card-text customcardtext">
                       {WashingtonDC.stations[0].description}
                     </p>
-                    {/* <a
-                      href="/"
-                      className="btn btn-primary btnmyclass"
-                      
-                    >
-                      Learn more
-                    </a> */}
                   </div>
                 </div>
               }
