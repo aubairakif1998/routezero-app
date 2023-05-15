@@ -310,7 +310,7 @@ export default function UsMap() {
                       },
                       hover: {
                         fill: IsMain
-                          ? "red"
+                          ? "#cf1504"
                           : isHighlighted
                           ? "#eb8934"
                           : "#4C7A81",
