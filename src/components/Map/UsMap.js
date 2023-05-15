@@ -43,6 +43,8 @@ import AZ2 from "./Images/AZ2.png";
 import AZ3 from "./Images/AZ3.png";
 import AZ4 from "./Images/AZ4.png";
 import WDLogo from "./Images/WD.png";
+import AZ021 from "./Images/AZ021.png";
+
 import { SVGImageElement } from "react";
 import {
   ComposableMap,
@@ -60,8 +62,28 @@ const geoUrl =
 
 export default function UsMap() {
   const J1Images = [J1, J2, J3, J4, J5, J6, J7, J8, J9, J10, J11, J12, J13];
-  const AZ01Images = [AZ01,AZ02,AZ03,AZ04,AZ05,AZ06,AZ07,AZ08,AZ09,AZ010,AZ011,AZ012,AZ013,AZ014,AZ015,AZ017,AZ018,AZ019,AZ020];
-  const AZImages = [AZ1, AZ2, AZ3, AZ4];
+  const AZ01Images = [
+    AZ01,
+    AZ02,
+    AZ03,
+    AZ04,
+    AZ05,
+    AZ06,
+    AZ07,
+    AZ08,
+    AZ09,
+    AZ010,
+    AZ011,
+    AZ012,
+    AZ013,
+    AZ014,
+    AZ015,
+    AZ017,
+    AZ018,
+    AZ019,
+    AZ020,
+  ];
+  const NMImages = [AZ1, AZ2, AZ3, AZ4, AZ021];
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const openImageViewer = (index) => {
@@ -117,6 +139,7 @@ export default function UsMap() {
       },
     ],
   };
+
   const Joliet = {
     stations: [
       {
@@ -173,10 +196,12 @@ export default function UsMap() {
     [-118.243683, 34.052235],
     [-111.651299, 35.198284],
     [-105.944183, 35.691544],
-    [-94.578331, 39.099724],
-    [-89.242198,39.744364],
+    [-98.20314200557293, 38.327227081669456],
+    [-92.35993170929841, 37.9459988303508],
+
+    [-89.242198, 39.744364],
     // [-88.150558, 41.520557],
-    [-444.353266 , 42.795402],
+    [-444.353266, 42.795402],
     [-442.770179, 40.329797],
     [-438.543454, 41.525032],
     [-76.609383, 39.299236],
@@ -211,16 +236,24 @@ export default function UsMap() {
       coordinates: [-105.944183, 35.691544],
       state: "Santa Fe, NM",
     },
+    // {
+    //   coordinates: [-94.578331, 39.099724],
+    //   state: "Kansas City, MO",
+    // },
     {
-      coordinates: [-94.578331, 39.099724],
+      coordinates: [-98.20314200557293, 38.327227081669456],
       state: "Kansas City, MO",
+    },
+    {
+      coordinates: [-92.35993170929841, 37.9459988303508],
+      state: "Missouri",
     },
     {
       coordinates: [-442.770179, 40.329797],
       state: "Ohio",
     },
     {
-      coordinates: [-89.242198,39.744364],//[-88.150558, 41.520557],
+      coordinates: [-89.242198, 39.744364], //[-88.150558, 41.520557],
       state: "Joliet, IL",
     },
   ];
@@ -283,7 +316,7 @@ export default function UsMap() {
                 const IsMain = coordinatedDataStates.some((data) => {
                   return (
                     ("California" === state) |
-                    ("Kansas" === state) |
+                    ("Missouri" === state) |
                     ("Pennsylvania" === state) |
                     ("Michigan" === state) |
                     ("MO" === state)
@@ -358,7 +391,7 @@ export default function UsMap() {
                     <div></div>
                   )}
                   {state === "Ohio" ||
-                  state === "Kansas MO" ||
+                  state === "Missouri" ||
                   state === "Joliet, IL" ||
                   state === "Flagstaff, Arizona" ||
                   state === "Santa Fe, NM" ? (
@@ -421,9 +454,9 @@ export default function UsMap() {
           //     }}
           //   />
           // </div>
-          AZImages.map((src, index) => (
+          NMImages.map((src, index) => (
             <GalleryPage
-              images={AZImages}
+              images={NMImages}
               currentImage={index}
               closeImageViewer={closeImageViewer}
             />
