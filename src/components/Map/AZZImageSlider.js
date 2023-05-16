@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./style.css";
-import AZ01 from "./Images/AZ01.png"; 
+import AZ01 from "./Images/AZ01.png";
 
 function AZZImageSlider(props) {
   const [images, setImages] = useState([
@@ -11,7 +11,7 @@ function AZZImageSlider(props) {
       id: 1,
       src: "https://via.placeholder.com/800x400/ff0000/ffffff",
       alt: "image1",
-    } 
+    },
   ]);
 
   // settings for the slider
@@ -32,7 +32,7 @@ function AZZImageSlider(props) {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", left: "-20px",}}
+        style={{ ...style, display: "block", left: "-20px" }}
         onClick={onClick}
       >
         <i className="fas fa-chevron-left"></i>
@@ -77,12 +77,7 @@ function AZZImageSlider(props) {
       <Slider {...settings} style={{ width: "100%" }}>
         {images.map((image) => (
           <div key={image.id}>
-            <img
-              src={
-                AZ01
-              }
-              alt={image.alt}
-            />
+            <img src={AZ01} alt={image.alt} />
           </div>
         ))}
       </Slider>

@@ -15,78 +15,76 @@ import J9 from "./Images/J9.png";
 import J10 from "./Images/J10.png";
 import J11 from "./Images/J11.png";
 import J12 from "./Images/J12.png";
-import J13 from "./Images/J13.png"; 
-
+import J13 from "./Images/J13.png";
 
 function JlImageSlider(props) {
-    const [images, setImages] = useState([
-        {
-          id: 1,
-          src: "https://via.placeholder.com/800x400/ff0000/ffffff",
-          alt: "image1",
-        },
-        {
-          id: 2,
-          src: "https://via.placeholder.com/600x400/00ff00/ffffff",
-          alt: "image2",
-        },
-        {
-          id: 3,
-          src: "https://via.placeholder.com/600x400/0000ff/ffffff",
-          alt: "image3",
-        },
-        {
-          id: 4,
-          src: "https://via.placeholder.com/600x400/0000ff/ffffff",
-          alt: "image4",
-        },
-        {
-          id: 5,
-          src: "https://via.placeholder.com/800x400/ff00ff/ffffff",
-          alt: "image5",
-        },
-        {
-          id: 6,
-          src: "https://via.placeholder.com/600x400/ffff00/ffffff",
-          alt: "image6",
-        },
-        {
-          id: 7,
-          src: "https://via.placeholder.com/600x400/00ffff/ffffff",
-          alt: "image7",
-        },
-        {
-          id: 8,
-          src: "https://via.placeholder.com/600x400/ff0000/ffffff",
-          alt: "image8",
-        },
-        {
-          id: 9,
-          src: "https://via.placeholder.com/800x400/ff00ff/ffffff",
-          alt: "image9",
-        },
-        {
-          id: 10,
-          src: "https://via.placeholder.com/600x400/ffff00/ffffff",
-          alt: "image10",
-        },
-        {
-          id: 11,
-          src: "https://via.placeholder.com/600x400/00ffff/ffffff",
-          alt: "image11",
-        },
-        {
-          id: 12,
-          src: "https://via.placeholder.com/600x400/ff0000/ffffff",
-          alt: "image12",
-        },
-        {
-          id: 13,
-          src: "https://via.placeholder.com/800x400/ff00ff/ffffff",
-          alt: "image13",
-        } 
-      ]);
-      
+  const [images, setImages] = useState([
+    {
+      id: 1,
+      src: "https://via.placeholder.com/800x400/ff0000/ffffff",
+      alt: "image1",
+    },
+    {
+      id: 2,
+      src: "https://via.placeholder.com/600x400/00ff00/ffffff",
+      alt: "image2",
+    },
+    {
+      id: 3,
+      src: "https://via.placeholder.com/600x400/0000ff/ffffff",
+      alt: "image3",
+    },
+    {
+      id: 4,
+      src: "https://via.placeholder.com/600x400/0000ff/ffffff",
+      alt: "image4",
+    },
+    {
+      id: 5,
+      src: "https://via.placeholder.com/800x400/ff00ff/ffffff",
+      alt: "image5",
+    },
+    {
+      id: 6,
+      src: "https://via.placeholder.com/600x400/ffff00/ffffff",
+      alt: "image6",
+    },
+    {
+      id: 7,
+      src: "https://via.placeholder.com/600x400/00ffff/ffffff",
+      alt: "image7",
+    },
+    {
+      id: 8,
+      src: "https://via.placeholder.com/600x400/ff0000/ffffff",
+      alt: "image8",
+    },
+    {
+      id: 9,
+      src: "https://via.placeholder.com/800x400/ff00ff/ffffff",
+      alt: "image9",
+    },
+    {
+      id: 10,
+      src: "https://via.placeholder.com/600x400/ffff00/ffffff",
+      alt: "image10",
+    },
+    {
+      id: 11,
+      src: "https://via.placeholder.com/600x400/00ffff/ffffff",
+      alt: "image11",
+    },
+    {
+      id: 12,
+      src: "https://via.placeholder.com/600x400/ff0000/ffffff",
+      alt: "image12",
+    },
+    {
+      id: 13,
+      src: "https://via.placeholder.com/800x400/ff00ff/ffffff",
+      alt: "image13",
+    },
+  ]);
 
   // settings for the slider
   const settings = {
@@ -106,7 +104,7 @@ function JlImageSlider(props) {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", left: "-20px",}}
+        style={{ ...style, display: "block", left: "-20px" }}
         onClick={onClick}
       >
         <i className="fas fa-chevron-left"></i>
@@ -176,7 +174,7 @@ function JlImageSlider(props) {
                   : image.alt === "image12"
                   ? J12
                   : image.alt === "image13"
-                  ? J13 
+                  ? J13
                   : J1
               }
               alt={image.alt}

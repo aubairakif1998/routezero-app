@@ -50,7 +50,7 @@ function NMImageSlider(props) {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", left: "-20px",}}
+        style={{ ...style, display: "block", left: "-20px" }}
         onClick={onClick}
       >
         <i className="fas fa-chevron-left"></i>

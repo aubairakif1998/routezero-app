@@ -45,7 +45,6 @@ import AZ4 from "./Images/AZ4.png";
 import WDLogo from "./Images/WD.png";
 import AZ021 from "./Images/AZ021.png";
 
-import { SVGImageElement } from "react";
 import {
   ComposableMap,
   Geographies,
@@ -53,9 +52,8 @@ import {
   Marker,
   Line,
 } from "react-simple-maps";
-import AZZImageSlider from "./AZZImageSlider";
-import JlImageSlider from "./JlImageSlider";
-import NMImageSlider from "./NMImageSlider";
+
+import MyCarousel from "./MyCarousel";
 
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/united-states/us-albers.json";
@@ -93,6 +91,9 @@ export default function UsMap() {
   const closeImageViewer = () => {
     setCurrentImage(0);
     setIsMarkerClicked("");
+  };
+  const toggleShowImages = () => {
+    setShowImages(!showImages);
   };
   const isMobile = document.documentElement.clientWidth <= 415;
   const LosAngelesCA = {
@@ -188,19 +189,13 @@ export default function UsMap() {
   };
   const [showImages, setShowImages] = useState(false);
 
-  const toggleShowImages = () => {
-    setShowImages(!showImages);
-  };
   const [hoveredState, setHoveredState] = useState("");
   const trailCoords = [
     [-118.243683, 34.052235],
     [-111.651299, 35.198284],
     [-105.944183, 35.691544],
     [-98.20314200557293, 38.327227081669456],
-    [-92.35993170929841, 37.9459988303508],
-
     [-89.242198, 39.744364],
-    // [-88.150558, 41.520557],
     [-444.353266, 42.795402],
     [-442.770179, 40.329797],
     [-438.543454, 41.525032],
@@ -244,10 +239,10 @@ export default function UsMap() {
       coordinates: [-98.20314200557293, 38.327227081669456],
       state: "Kansas City, MO",
     },
-    {
-      coordinates: [-92.35993170929841, 37.9459988303508],
-      state: "Missouri",
-    },
+    // {
+    //   coordinates: [-92.35993170929841, 37.9459988303508],
+    //   state: "Missouri",
+    // },
     {
       coordinates: [-442.770179, 40.329797],
       state: "Ohio",
@@ -333,10 +328,6 @@ export default function UsMap() {
                     fill={IsMain ? "red" : isHighlighted ? "orange" : "#669DA6"}
                     stroke="#f3e9b4"
                     strokeWidth={2}
-                    onClick={() => {
-                      console.log(geo.properties.name + "  AUBAIR");
-                      setIsMarkerClicked(geo.properties.name);
-                    }}
                     style={{
                       default: {
                         outline: "#0000",
@@ -362,6 +353,7 @@ export default function UsMap() {
             strokeWidth={2}
             strokeDasharray="9 9"
           />
+
           {coordinatedData &&
             coordinatedData.map(({ state, coordinates }) => (
               <Marker
@@ -369,12 +361,8 @@ export default function UsMap() {
                 coordinates={coordinates}
                 onMouseEnter={() => {
                   if (!isMobile) {
-                    // console.log(state);
                     setHoveredState(state);
                   }
-                }}
-                onMouseLeave={() => {
-                  setHoveredState("");
                 }}
               >
                 <>
@@ -404,7 +392,6 @@ export default function UsMap() {
                       transform="translate(-12, -22)  scale(0.9)"
                     >
                       <circle cx="12" cy="10" r="1" fill="white" />{" "}
-                      {/* Yellow fill for the pin */}
                       <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 10.7z" />
                     </g>
                   ) : state === "Baltimore, Maryland" ? (
@@ -417,7 +404,6 @@ export default function UsMap() {
                       transform="translate(-12, -25)  scale(0.9)"
                     >
                       <circle cx="12" cy="10" r="1" fill="white" />{" "}
-                      {/* Yellow fill for the pin */}
                       <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 10.7z" />
                     </g>
                   ) : (
@@ -430,7 +416,6 @@ export default function UsMap() {
                       transform="translate(-12, -24)"
                     >
                       <circle cx="12" cy="10" r="3" fill="blue" />{" "}
-                      {/* Blue fill for the pin */}
                       <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
                     </g>
                   )}
@@ -438,22 +423,7 @@ export default function UsMap() {
               </Marker>
             ))}
         </ComposableMap>
-        {isMarkerClicked === "New Mexico" ? (
-          // <div
-          //   style={{
-          //     position: "absolute",
-          //     width: "100vh",
-          //     height: "100vh",
-          //     backgroundColor: "black",
-          //   }}
-          // >
-          //   <NMImageSlider
-          //     handleClose={() => {
-          //       setIsMarkerClicked("");
-          //       setHoveredState("");
-          //     }}
-          //   />
-          // </div>
+        {isMarkerClicked === "Santa Fe, NM" ? (
           NMImages.map((src, index) => (
             <GalleryPage
               images={NMImages}
@@ -461,7 +431,7 @@ export default function UsMap() {
               closeImageViewer={closeImageViewer}
             />
           ))
-        ) : isMarkerClicked === "Arizona" ? (
+        ) : isMarkerClicked === "Flagstaff, Arizona" ? (
           AZ01Images.map((src, index) => (
             <GalleryPage
               images={AZ01Images}
@@ -469,7 +439,7 @@ export default function UsMap() {
               closeImageViewer={closeImageViewer}
             />
           ))
-        ) : isMarkerClicked === "Illinois" ? (
+        ) : isMarkerClicked === "Joliet, IL" ? (
           J1Images.map((src, index) => (
             <GalleryPage
               images={J1Images}
@@ -481,8 +451,14 @@ export default function UsMap() {
           <div></div>
         )}
 
-        {hoveredState !== "" && !isMarkerClicked ? (
-          <CityInfoCard state={hoveredState} />
+        {hoveredState !== "" ? (
+          <CityInfoCard
+            state={hoveredState}
+            gallery={() => {
+              setIsMarkerClicked(hoveredState);
+              console.log(hoveredState + "clicked");
+            }}
+          />
         ) : (
           <div></div>
         )}
@@ -512,6 +488,7 @@ export default function UsMap() {
             <div className="card-container d-flex flex-wrap">
               {
                 <div className="card myclass">
+                  <MyCarousel Images={AZ01Images} />
                   <div className="card-body">
                     <h5
                       className="card-title customcardtitle"
@@ -529,6 +506,7 @@ export default function UsMap() {
             <div className="card-container d-flex flex-wrap">
               {
                 <div className="card myclass">
+                  <MyCarousel Images={NMImages} />
                   <div className="card-body">
                     <h5
                       className="card-title customcardtitle"
@@ -572,6 +550,7 @@ export default function UsMap() {
             <div className="card-container d-flex flex-wrap">
               {
                 <div className="card myclass">
+                  <MyCarousel Images={J1Images} />
                   <div className="card-body">
                     <h5
                       className="card-title customcardtitle redColor"
