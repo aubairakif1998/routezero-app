@@ -72,7 +72,8 @@ export default function CityInfoCard(props) {
     stations: [
       {
         title: "Cleveland OH ",
-        description: " ",
+        description:
+          "The Route Zero Relay will be stopping in Cleveland, OH on our zero emission trek across the country. Strong cleaner cars standards will help reduce tailpipe pollution and protect the health of the people of OH.",
       },
     ],
   };
@@ -254,10 +255,10 @@ export default function CityInfoCard(props) {
         </div>
       }
     </div>
-  ) : props.state === "Kansas City, MO" ? (
+  ) : props.state === "Missouri" ? (
     <div
       className="card-container d-flex flex-wrap"
-      style={{ position: "absolute", transform: "translate(-9%, -61%)" }}
+      style={{ position: "absolute", transform: "translate( 9%, -64%)" }}
     >
       {
         <div
@@ -425,7 +426,7 @@ export default function CityInfoCard(props) {
   ) : props.state === "Ohio" ? (
     <div
       className="card-container d-flex flex-wrap"
-      style={{ position: "absolute", transform: "translate(140%, -145%)" }}
+      style={{ position: "absolute", transform: "translate(64%, -95%)" }}
     >
       {
         <div
@@ -456,7 +457,7 @@ export default function CityInfoCard(props) {
   ) : props.state === "Washington, DC" ? (
     <div
       className="card-container d-flex flex-wrap"
-      style={{ position: "absolute", transform: "translate(102%, -70%)" }}
+      style={{ position: "absolute", transform: "translate(102%, -69%)" }}
     >
       {
         <div

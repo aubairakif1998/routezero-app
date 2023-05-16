@@ -109,7 +109,8 @@ export default function UsMap() {
     stations: [
       {
         title: "Cleveland OH ",
-        description: " ",
+        description:
+          "The Route Zero Relay will be stopping in Cleveland, OH on our zero emission trek across the country. Strong cleaner cars standards will help reduce tailpipe pollution and protect the health of the people of OH.",
       },
     ],
   };
@@ -194,13 +195,13 @@ export default function UsMap() {
     [-118.243683, 34.052235],
     [-111.651299, 35.198284],
     [-105.944183, 35.691544],
-    [-98.20314200557293, 38.327227081669456],
+    [-94.578331, 39.099724],
     [-89.242198, 39.744364],
     [-444.353266, 42.795402],
     [-442.770179, 40.329797],
     [-438.543454, 41.525032],
     [-76.609383, 39.299236],
-    [-77.007507, 38.900497],
+    [-77.039726, 38.831149],
   ];
   const coordinatedData = [
     {
@@ -212,7 +213,7 @@ export default function UsMap() {
       state: "Baltimore, Maryland",
     },
     {
-      coordinates: [-437.004341, 38.805472],
+      coordinates: [-77.039726, 38.831149],
       state: "Washington, DC",
     },
     {
@@ -235,14 +236,14 @@ export default function UsMap() {
     //   coordinates: [-94.578331, 39.099724],
     //   state: "Kansas City, MO",
     // },
-    {
-      coordinates: [-98.20314200557293, 38.327227081669456],
-      state: "Kansas City, MO",
-    },
     // {
-    //   coordinates: [-92.35993170929841, 37.9459988303508],
-    //   state: "Missouri",
+    //   coordinates: [-98.20314200557293, 38.327227081669456],
+    //   state: "Kansas City, MO",
     // },
+    {
+      coordinates: [-94.578331, 39.099724],
+      state: "Missouri",
+    },
     {
       coordinates: [-442.770179, 40.329797],
       state: "Ohio",
@@ -368,12 +369,12 @@ export default function UsMap() {
                 }}
               >
                 <>
-                  {state === "Kansas City, MO" ? (
+                  {state === "Missouri" ? (
                     <image
                       style={{ position: "relative", top: "100px" }} //process.env.PUBLIC_URL +
                       href="https://routezero-app-pn8r.vercel.app/img/car.png"
-                      x=" -22"
-                      y=" -64"
+                      x=" -32"
+                      y=" -60"
                       width="55"
                       height="55"
                     />
@@ -381,7 +382,6 @@ export default function UsMap() {
                     <div></div>
                   )}
                   {state === "Ohio" ||
-                  state === "Missouri" ||
                   state === "Joliet, IL" ||
                   state === "Flagstaff, Arizona" ||
                   state === "Santa Fe, NM" ? (
@@ -396,6 +396,19 @@ export default function UsMap() {
                       <circle cx="12" cy="10" r="1" fill="white" />{" "}
                       <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 10.7z" />
                     </g>
+                  ) : state === "Washington, DC" ? (
+                    <text
+                      fontStyle={{}}
+                      textAnchor="middle"
+                      y={0}
+                      style={{
+                        fontFamily: "system-ui",
+                        fill: "#5D5A6D",
+                        fontSize: 23,
+                      }}
+                    >
+                      ⭐
+                    </text>
                   ) : state === "Baltimore, Maryland" ? (
                     <g
                       fill="black"
