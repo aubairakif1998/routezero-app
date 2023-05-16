@@ -423,7 +423,7 @@ export default function UsMap() {
               </Marker>
             ))}
         </ComposableMap>
-        {isMarkerClicked === "Santa Fe, NM" ? (
+        {/* {isMarkerClicked === "Santa Fe, NM" ? (
           NMImages.map((src, index) => (
             <GalleryPage
               images={NMImages}
@@ -449,13 +449,13 @@ export default function UsMap() {
           ))
         ) : (
           <div></div>
-        )}
+        )} */}
 
         {hoveredState !== "" ? (
           <CityInfoCard
             state={hoveredState}
             gallery={() => {
-              setIsMarkerClicked(hoveredState);
+              // setIsMarkerClicked(hoveredState);
               console.log(hoveredState + "clicked");
             }}
           />
