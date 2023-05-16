@@ -404,7 +404,7 @@ export default function UsMap() {
                       style={{
                         fontFamily: "system-ui",
                         fill: "#5D5A6D",
-                        fontSize: 23,
+                        fontSize: 24,
                       }}
                     >
                       ⭐
