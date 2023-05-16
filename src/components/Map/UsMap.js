@@ -325,7 +325,9 @@ export default function UsMap() {
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
-                    fill={IsMain ? "red" : isHighlighted ? "orange" : "#669DA6"}
+                    fill={
+                      IsMain ? "#D77358" : isHighlighted ? "orange" : "#669DA6"
+                    }
                     stroke="#f3e9b4"
                     strokeWidth={2}
                     style={{
@@ -334,7 +336,7 @@ export default function UsMap() {
                       },
                       hover: {
                         fill: IsMain
-                          ? "#cf1504"
+                          ? "#f56349"
                           : isHighlighted
                           ? "#eb8934"
                           : "#4C7A81",
